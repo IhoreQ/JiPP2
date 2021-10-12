@@ -1,8 +1,7 @@
-//
-// Created by IhoreQ on 12/10/2021.
-//
-
 #ifndef ALLOCATION_BASICS_ZADANIA_H
 #define ALLOCATION_BASICS_ZADANIA_H
 
 #endif //ALLOCATION_BASICS_ZADANIA_H
+
+void forJiPP();
+void alokowanieTablicy2D();
