@@ -11,6 +11,7 @@ void forJiPP() {
         cout << "JiPP2" << endl;
 }
 
+// Funkcja alokująca pamiec dla tablicy 2D, wpisująca do każdego elementu tabeli losowej liczby, wyświetlająca tabele, a na końcu czyszcząca pamięć
 void alokowanieTablicy2D() {
 
     srand((unsigned)time(NULL));
