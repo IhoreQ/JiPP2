@@ -1,0 +1,6 @@
+#ifndef ALLOCATION_BASICS_LIB_H
+#define ALLOCATION_BASICS_LIB_H
+
+#endif //ALLOCATION_BASICS_LIB_H
+
+void doesItWork();
