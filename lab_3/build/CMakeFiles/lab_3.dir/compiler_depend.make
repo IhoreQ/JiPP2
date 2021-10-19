@@ -357,8 +357,17 @@ CMakeFiles/lab_3.dir/src/zadania.cpp.o: ../src/zadania.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  ../include/zadania.h
+  ../include/zadania.h \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h
 
+
+/usr/include/strings.h:
+
+/usr/include/string.h:
+
+/usr/include/c++/11/cstring:
 
 ../src/zadania.cpp:
 
