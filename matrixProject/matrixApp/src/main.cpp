@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
     double dScalar, dDeterminant;
     unsigned int powerValue;
 
-    if (argc > 2 && argc < 4) {
+    if (argc == 3) {
 
         if (strcmp(argv[2], "int") != 0 && strcmp(argv[2], "double") != 0) {
             cout << "Niepoprawne uzycie programu!" << endl << "Dowiedz sie jak uzywac wpisujac matricApp -help" << endl;
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
                     if (rowsA != rowsB || colsA != colsB)
                         throw "Wymiary macierzy musza byc takie same!";
                     iMatrixA = addMatrix(iMatrixA, iMatrixB, rowsA, colsA);
-                    showMatrix(iMatrixA, rowsA, colsA);
+                    showMatrix(iMatrixA, rowsA, colsA, "Wynik dodawania macierzy A i B:");
                     freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
                     if (rowsA != rowsB || colsA != colsB)
                         throw "Wymiary macierzy musza byc takie same!";
                     iMatrixA = addMatrix(iMatrixA, iMatrixB, rowsA, colsA);
-                    showMatrix(iMatrixA, rowsA, colsA);
+                    showMatrix(iMatrixA, rowsA, colsA, "Wynik dodawania macierzy A i B:");
                     freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
                     if (rowsA != rowsB || colsA != colsB)
                         throw "Wymiary macierzy musza byc takie same!";
                     iMatrixA = subtractMatrix(iMatrixA, iMatrixB, rowsA, colsA);
-                    showMatrix(iMatrixA, rowsA, colsA);
+                    showMatrix(iMatrixA, rowsA, colsA, "Wynik odejmowania macierzy B od macierzy A:");
                     freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -102,7 +102,7 @@ int main(int argc, char* argv[]) {
                     if (rowsA != rowsB || colsA != colsB)
                         throw "Wymiary macierzy musza byc takie same!";
                     iMatrixA = subtractMatrix(iMatrixA, iMatrixB, rowsA, colsA);
-                    showMatrix(iMatrixA, rowsA, colsA);
+                    showMatrix(iMatrixA, rowsA, colsA, "Wynik odejmowania macierzy B od macierzy A:");
                     freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -125,7 +125,7 @@ int main(int argc, char* argv[]) {
                     if (colsA != rowsB)
                         throw "Liczba kolumn pierwszej macierzy musi byc rowna liczbie wierszy drugiej";
                     iMultiplyResultMatrix = multiplyMatrix(iMatrixA, iMatrixB, rowsA, colsA, colsB);
-                    showMatrix(iMultiplyResultMatrix, rowsA, colsB);
+                    showMatrix(iMultiplyResultMatrix, rowsA, colsB, "Wynik mnozenia macierzy A i B:");
                     freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -144,7 +144,7 @@ int main(int argc, char* argv[]) {
                     if (colsA != rowsB)
                         throw "Liczba kolumn pierwszej macierzy musi byc rowna liczbie wierszy drugiej";
                     dMultiplyResultMatrix = multiplyMatrix(dMatrixA, dMatrixB, rowsA, colsA, colsB);
-                    showMatrix(dMultiplyResultMatrix, rowsA, colsB);
+                    showMatrix(dMultiplyResultMatrix, rowsA, colsB, "Wynik mnozenia macierzy A i B:");
                     freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -166,7 +166,7 @@ int main(int argc, char* argv[]) {
                     if (scanf("%d", &iScalar) != 1)
                         throw "Wprowadzono bledna wartosc dla skalara!";
                     iMatrixA = multiplyByScalar(iMatrixA, rowsA, colsA, iScalar);
-                    showMatrix(iMatrixA, rowsA, colsA);
+                    showMatrix(iMatrixA, rowsA, colsA, "Wynik mnozenia macierzy A przez skalar:");
                     freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -184,7 +184,7 @@ int main(int argc, char* argv[]) {
                     if (scanf("%lf", &dScalar) != 1)
                         throw "Liczba kolumn pierwszej macierzy musi byc rowna liczbie wierszy drugiej";
                     dMatrixA = multiplyByScalar(dMatrixA, rowsA, colsA, dScalar);
-                    showMatrix(dMatrixA, rowsA, colsA);
+                    showMatrix(dMatrixA, rowsA, colsA, "Wynik mnozenia macierzy A przez skalar:");
                     freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -202,7 +202,7 @@ int main(int argc, char* argv[]) {
                 iMatrixA = createMatrix(iMatrixA, &rowsA, &colsA);
 
                 iTransposeResultMatrix = transposeMatrix(iMatrixA, rowsA, colsA);
-                showMatrix(iTransposeResultMatrix, colsA, rowsA);
+                showMatrix(iTransposeResultMatrix, colsA, rowsA, "Macierz A po transpozycji:");
                 freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
             }
             else if (strcmp(argv[2], "double") == 0) {
@@ -210,7 +210,7 @@ int main(int argc, char* argv[]) {
                 dMatrixA = createMatrix(dMatrixA, &rowsA, &colsA);
 
                 dTransposeResultMatrix = transposeMatrix(dMatrixA, rowsA, colsA);
-                showMatrix(dTransposeResultMatrix, colsA, rowsA);
+                showMatrix(dTransposeResultMatrix, colsA, rowsA, "Macierz A po transpozycji:");
                 freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
             }
         }
@@ -237,7 +237,7 @@ int main(int argc, char* argv[]) {
                     if (scanf("%u", &powerValue) != 1)
                         throw "Podano nieprawidlowa wartosc stopnia potegi!";
                     iMatrixA = powerMatrix(iMatrixA, rowsA, colsA, powerValue);
-                    showMatrix(iMatrixA, rowsA, colsA);
+                    showMatrix(iMatrixA, rowsA, colsA, "Wynik potegowania macierzy A:");
                     freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -266,7 +266,7 @@ int main(int argc, char* argv[]) {
                     if (scanf("%u", &powerValue) != 1)
                         throw "Podano nieprawidlowa wartosc stopnia potegi!";
                     dMatrixA = powerMatrix(dMatrixA, rowsA, colsA, powerValue);
-                    showMatrix(dMatrixA, rowsA, colsA);
+                    showMatrix(dMatrixA, rowsA, colsA, "Wynik potegowania macierzy A:");
                     freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -300,7 +300,7 @@ int main(int argc, char* argv[]) {
                     colsVector[i] = i;
 
                 iDeterminant = determinantMatrix(iMatrixA, rowsA, colsVector, 0);
-                showMatrix(iMatrixA, rowsA, colsA);
+                showMatrix(iMatrixA, rowsA, colsA, "Macierz A:");
                 cout << "Wyznacznik macierzy: " << iDeterminant << endl;
                 delete[] colsVector;
                 freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
@@ -327,7 +327,7 @@ int main(int argc, char* argv[]) {
                     colsVector[i] = i;
 
                 dDeterminant = determinantMatrix(dMatrixA, rowsA, colsVector, 0);
-                showMatrix(dMatrixA, rowsA, colsA);
+                showMatrix(dMatrixA, rowsA, colsA, "Macierz A:");
                 cout << "Wyznacznik macierzy: " << dDeterminant << endl;
                 delete [] colsVector;
                 freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
@@ -342,7 +342,7 @@ int main(int argc, char* argv[]) {
                 cout << "Tworzenie macierzy A:" << endl;
                 iMatrixA = createMatrix(iMatrixA, &rowsA, &colsA);
 
-                showMatrix(iMatrixA, rowsA, colsA);
+                showMatrix(iMatrixA, rowsA, colsA, "Macierz A:");
                 if (matrixIsDiagonal(iMatrixA, rowsA, colsA))
                     cout << "Macierz jest diagonalna." << endl;
                 else
@@ -353,7 +353,7 @@ int main(int argc, char* argv[]) {
                 cout << "Tworzenie macierzy A:" << endl;
                 dMatrixA = createMatrix(dMatrixA, &rowsA, &colsA);
 
-                showMatrix(dMatrixA, rowsA, colsA);
+                showMatrix(dMatrixA, rowsA, colsA, "Macierz A:");
                 if (matrixIsDiagonal(dMatrixA, rowsA, colsA))
                     cout << "Macierz jest diagonalna." << endl;
                 else
@@ -370,7 +370,7 @@ int main(int argc, char* argv[]) {
                 iMatrixA = createMatrix(iMatrixA, &rowsA, &colsA);
 
                 iMatrixA = sortRowsInMatrix(iMatrixA, rowsA, colsA);
-                showMatrix(iMatrixA, rowsA, colsA);
+                showMatrix(iMatrixA, rowsA, colsA, "Macierz po posortowaniu:");
                 freeAll(iMatrixA, iMatrixB, iMultiplyResultMatrix, iTransposeResultMatrix, rowsA, colsA, rowsB);
             }
             else if (strcmp(argv[2], "double") == 0) {
@@ -378,13 +378,13 @@ int main(int argc, char* argv[]) {
                 dMatrixA = createMatrix(dMatrixA, &rowsA, &colsA);
 
                 dMatrixA = sortRowsInMatrix(dMatrixA, rowsA, colsA);
-                showMatrix(dMatrixA, rowsA, colsA);
+                showMatrix(dMatrixA, rowsA, colsA, "Macierz po posortowaniu:");
                 freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
             }
         }
-        else if (strcmp(argv[2], "help") == 0)  {
-            showHelp();
-        }
+    }
+    else if (argc == 2 && strcmp(argv[1], "help") == 0){
+        showHelp();
     }
     else {
         cout << "Niepoprawne uzycie programu!" << endl << "Dowiedz sie jak uzywac wpisujac matrixApp help" << endl;

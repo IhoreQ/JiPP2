@@ -20,8 +20,8 @@ void freeAll(double** matrixA, double** matrixB, double** multiplyResult, double
 void insertRowsCols(int* rows, int* cols);
 
 // wyswietlenie macierzy na ekran
-void showMatrix(int** matrix, int rows, int cols);
-void showMatrix(double** matrix, int rows, int cols);
+void showMatrix(int** matrix, int rows, int cols, const char* text);
+void showMatrix(double** matrix, int rows, int cols, const char* text);
 
 // wprowadzenie danych do macierzy
 int** enterMatrixData(int** matrix, int rows, int cols);

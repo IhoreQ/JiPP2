@@ -12,22 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68b6c5f6-3856-4a28-9b55-9dfcf5d399d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/matrixProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixApp/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixApp/.idea/matrixApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/.idea/matrixLib.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/include/matrixLib.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrixLib/src/matrixLib.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/matrixApp" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/matrixApp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixApp/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixApp/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixLib/include/matrixLib.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrixLib/include/matrixLib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixLib/src/matrixLib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixLib/src/matrixLib.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,9 +59,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="matrixApp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matrixApp" TARGET_NAME="matrixApp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matrixApp" RUN_TARGET_NAME="matrixApp">
@@ -91,7 +83,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1634719213274</updated>
-      <workItem from="1634719214463" duration="30558000" />
+      <workItem from="1634719214463" duration="30677000" />
+      <workItem from="1634814329140" duration="9594000" />
     </task>
     <servers />
   </component>
@@ -108,5 +101,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

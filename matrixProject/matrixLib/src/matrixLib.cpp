@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 int** allocateMatrix(int** matrix, int rows, int cols) {
     matrix = new int* [rows];
     for (int i = 0; i < rows; ++i)
@@ -38,6 +37,7 @@ double** createMatrix(double** matrix, int *rows, int *cols) {
     system("clear");
     return matrix;
 }
+
 
 void freeMatrix(int** matrix, int rows) {
 
@@ -72,6 +72,7 @@ void freeAll(int** matrixA, int** matrixB, int** multiplyResult, int** transpose
         freeMatrix(transposeResult, colsA);
 
 }
+
 void freeAll(double** matrixA, double** matrixB, double** multiplyResult, double** transposeResult, int rowsA, int colsA, int rowsB) {
 
     if (matrixA)
@@ -83,7 +84,6 @@ void freeAll(double** matrixA, double** matrixB, double** multiplyResult, double
     if (transposeResult)
         freeMatrix(transposeResult, colsA);
 }
-
 
 void insertRowsCols(int* rows, int* cols) {
 
@@ -109,10 +109,9 @@ void insertRowsCols(int* rows, int* cols) {
     }
 }
 
+void showMatrix(int** matrix, int rows, int cols, const char* text) {
 
-void showMatrix(int** matrix, int rows, int cols) {
-
-    cout << "Macierz wynikowa: " << endl;
+    cout << text << endl;
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
             cout << matrix[i][j] << "  ";
@@ -121,9 +120,9 @@ void showMatrix(int** matrix, int rows, int cols) {
     }
 }
 
-void showMatrix(double** matrix, int rows, int cols) {
+void showMatrix(double** matrix, int rows, int cols, const char* text) {
 
-    cout << "Macierz wynikowa: " << endl;
+    cout << text << endl;
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
             cout << matrix[i][j] << "  ";
@@ -175,6 +174,7 @@ double** enterMatrixData(double** matrix, int rows, int cols) {
     return matrix;
 }
 
+
 int** addMatrix(int** matrixA, int** matrixB, int rows, int cols) {
 
     for (int i = 0; i < rows; ++i) {
@@ -195,6 +195,7 @@ double** addMatrix(double** matrixA, double** matrixB, int rows, int cols) {
     return matrixA;
 }
 
+
 int** subtractMatrix(int** matrixA, int** matrixB, int rows, int cols) {
 
     for (int i = 0; i < rows; ++i) {
@@ -204,6 +205,7 @@ int** subtractMatrix(int** matrixA, int** matrixB, int rows, int cols) {
     }
     return matrixA;
 }
+
 double** subtractMatrix(double** matrixA, double** matrixB, int rows, int cols) {
 
     for (int i = 0; i < rows; ++i) {
@@ -213,6 +215,7 @@ double** subtractMatrix(double** matrixA, double** matrixB, int rows, int cols) 
     }
     return matrixA;
 }
+
 
 int** multiplyMatrix(int** matrixA, int** matrixB, int rowsA, int colsA, int colsB) {
 
@@ -228,9 +231,9 @@ int** multiplyMatrix(int** matrixA, int** matrixB, int rowsA, int colsA, int col
             suma = 0;
         }
     }
-
     return resultMatrix;
 }
+
 double** multiplyMatrix(double** matrixA, double** matrixB, int rowsA, int colsA, int colsB) {
 
     double** resultMatrix = NULL;
@@ -249,6 +252,7 @@ double** multiplyMatrix(double** matrixA, double** matrixB, int rowsA, int colsA
     return resultMatrix;
 }
 
+
 int** multiplyByScalar(int** matrixA, int rows, int cols, int scalar) {
 
     for (int i = 0; i < rows; ++i) {
@@ -256,9 +260,9 @@ int** multiplyByScalar(int** matrixA, int rows, int cols, int scalar) {
             matrixA[i][j] *= scalar;
         }
     }
-
     return matrixA;
 }
+
 double** multiplyByScalar(double** matrixA, int rows, int cols, double scalar) {
 
     for (int i = 0; i < rows; ++i) {
@@ -268,6 +272,7 @@ double** multiplyByScalar(double** matrixA, int rows, int cols, double scalar) {
     }
     return matrixA;
 }
+
 
 int** transposeMatrix(int** matrixA, int rows, int cols) {
 
@@ -281,6 +286,7 @@ int** transposeMatrix(int** matrixA, int rows, int cols) {
     }
     return resultMatrix;
 }
+
 double** transposeMatrix(double** matrixA, int rows, int cols) {
 
     double** resultMatrix = NULL;
@@ -294,6 +300,7 @@ double** transposeMatrix(double** matrixA, int rows, int cols) {
     return resultMatrix;
 }
 
+
 int** powerMatrix(int** matrixA, int rows, int cols, unsigned int exponent) {
 
     int** tempMatrix = allocateMatrix(tempMatrix, rows, cols);
@@ -306,9 +313,9 @@ int** powerMatrix(int** matrixA, int rows, int cols, unsigned int exponent) {
         matrixA = multiplyMatrix(matrixA, tempMatrix, rows, cols, cols);
     }
     freeMatrix(tempMatrix, rows);
-
     return matrixA;
 }
+
 double** powerMatrix(double** matrixA, int rows, int cols, unsigned int exponent) {
 
     double** tempMatrix = allocateMatrix(tempMatrix, rows, cols);
@@ -321,9 +328,9 @@ double** powerMatrix(double** matrixA, int rows, int cols, unsigned int exponent
         matrixA = multiplyMatrix(matrixA, tempMatrix, rows, cols, cols);
     }
     freeMatrix(tempMatrix, rows);
-
     return matrixA;
 }
+
 
 int determinantMatrix(int** matrixA, int rows, int* colsVector, int startingRow) {
 
@@ -351,9 +358,8 @@ int determinantMatrix(int** matrixA, int rows, int* colsVector, int startingRow)
         delete [] subVector;
         return sum;
     }
-
-
 }
+
 double determinantMatrix(double** matrixA, int rows, int* colsVector, int startingRow) {
 
     int sign, col;
@@ -383,6 +389,7 @@ double determinantMatrix(double** matrixA, int rows, int* colsVector, int starti
     }
 }
 
+
 bool matrixIsDiagonal(int** matrixA, int rows, int cols) {
 
     if (rows != cols)
@@ -396,6 +403,7 @@ bool matrixIsDiagonal(int** matrixA, int rows, int cols) {
     }
     return true;
 }
+
 bool matrixIsDiagonal(double** matrixA, int rows, int cols) {
 
     if (rows != cols)
@@ -410,16 +418,19 @@ bool matrixIsDiagonal(double** matrixA, int rows, int cols) {
     return true;
 }
 
+
 void swap(int& a, int& b) {
     int temp = a;
     a = b;
     b = temp;
 }
+
 void swap(double& a, double& b) {
     double temp = a;
     a = b;
     b = temp;
 }
+
 
 void sortRow(int* tab, int cols) {
 
@@ -430,6 +441,7 @@ void sortRow(int* tab, int cols) {
         }
     }
 }
+
 void sortRow(double* tab, int cols) {
 
     for (int i = 0; i < cols - 1; ++i) {
@@ -440,6 +452,7 @@ void sortRow(double* tab, int cols) {
     }
 }
 
+
 int** sortRowsInMatrix(int** matrixA, int rows, int cols) {
 
     for (int i = 0; i < rows; ++i)
@@ -447,6 +460,7 @@ int** sortRowsInMatrix(int** matrixA, int rows, int cols) {
 
     return matrixA;
 }
+
 double** sortRowsInMatrix(double** matrixA, int rows, int cols) {
 
     for (int i = 0; i < rows; ++i)
@@ -455,6 +469,31 @@ double** sortRowsInMatrix(double** matrixA, int rows, int cols) {
     return matrixA;
 }
 
+
 void showHelp() {
 
+    system("clear");
+
+    cout << "------------------------------------------" << endl;
+    cout << "Program wykonujacy operacje na macierzach." << endl;
+    cout << "------------------------------------------" << endl;
+    cout << "matrixApp [nazwa dzialania] [typ danych]" << endl << endl;
+
+    cout << "Po wczytaniu programu, poprosi on o wpisanie liczby wierszy oraz kolumn macierzy." << endl;
+    cout << "W przypadku potrzeby wykonania dzialania na dwoch macierzach, program poprosi o wprowadzenie danych dla drugiej macierzy." << endl << endl;
+
+    cout << "Typy danych: " << endl << "   int - operacje na liczbach calkowitych" << endl << "   double - operacje na liczbach zmiennoprzecinkowych" << endl << endl;
+
+    cout << "Dzialania: " << endl;
+    cout << "   addMatrix - dodawanie do macierzy A macierzy B" << endl;
+    cout << "   subtractMatrix - odejmowanie od macierzy A macierzy B" << endl;
+    cout << "   multiplyMatrix - mnozenie macierzy A i macierzy B, wymagana jest taka sama liczba kolumn macierzy A " << endl;
+    cout << "   multiplyByScalar - mnozenie macierzy przez skalar podawany w trakcie dzialania programu" << endl;
+    cout << "   transposeMatrix - transpozycja macierzy" << endl;
+    cout << "   powerMatrix - potegowanie macierzy, stopien potegi podawany w trakcie dzialania programu" << endl;
+    cout << "   determinantMatrix - obliczanie wyznacznika macierzy" << endl;
+    cout << "   matrixIsDiagonal - sprawdzenie, czy macierz jest diagonalna (czy kazdy jej element poza przekatna jest rowny 0" << endl;
+    cout << "   sortRowsInMatrix - sortowanie rosnaca kazdego wiersza macierzy" << endl << endl;
+
+    cout << "Przyklad zastosowania: "<< endl << "   matrixApp addMatrix double" << endl;
 }
