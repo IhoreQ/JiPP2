@@ -13,13 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="68b6c5f6-3856-4a28-9b55-9dfcf5d399d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/matrixApp" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/matrixApp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixApp/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixApp/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixLib/include/matrixLib.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrixLib/include/matrixLib.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixLib/src/matrixLib.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixLib/src/matrixLib.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,11 +62,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -84,7 +72,9 @@
       <option name="presentableId" value="Default" />
       <updated>1634719213274</updated>
       <workItem from="1634719214463" duration="30677000" />
-      <workItem from="1634814329140" duration="9594000" />
+      <workItem from="1634814329140" duration="10436000" />
+      <workItem from="1634885341878" duration="121000" />
+      <workItem from="1635239631709" duration="32000" />
     </task>
     <servers />
   </component>
