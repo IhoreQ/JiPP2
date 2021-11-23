@@ -12,35 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68b6c5f6-3856-4a28-9b55-9dfcf5d399d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lab7/.ignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab7/include/Figura.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab7/.ignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab7/.ignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab7/include/Figura.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab7/include/Figura.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixApp/matrixApp" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/matrixApp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixApp/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixApp/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +50,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab7" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
@@ -88,14 +62,14 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="matrixApp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matrixApp" TARGET_NAME="matrixApp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matrixApp" RUN_TARGET_NAME="matrixApp">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="matrixApp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matrixApp" TARGET_NAME="matrixApp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matrixApp" RUN_TARGET_NAME="matrixApp">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -112,7 +86,8 @@
       <workItem from="1634885341878" duration="121000" />
       <workItem from="1635239631709" duration="32000" />
       <workItem from="1637663279651" duration="687000" />
-      <workItem from="1637664303211" duration="2056000" />
+      <workItem from="1637664303211" duration="2502000" />
+      <workItem from="1637673384908" duration="41000" />
     </task>
     <servers />
   </component>
