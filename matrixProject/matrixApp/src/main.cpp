@@ -53,15 +53,15 @@ int main(int argc, char* argv[]) {
             }
             else if (strcmp(argv[2], "double") == 0) {
                 cout << "Tworzenie macierzy A:" << endl;
-                iMatrixA = createMatrix(iMatrixA, &rowsA, &colsA);
+                dMatrixA = createMatrix(dMatrixA, &rowsA, &colsA);
                 cout << "Tworzenie macierzy B:" << endl;
-                iMatrixB = createMatrix(iMatrixB, &rowsB, &colsB);
+                dMatrixB = createMatrix(dMatrixB, &rowsB, &colsB);
 
                 try {
                     if (rowsA != rowsB || colsA != colsB)
                         throw "Wymiary macierzy musza byc takie same!";
-                    iMatrixA = addMatrix(iMatrixA, iMatrixB, rowsA, colsA);
-                    showMatrix(iMatrixA, rowsA, colsA, "Wynik dodawania macierzy A i B:");
+                    dMatrixA = addMatrix(dMatrixA, dMatrixB, rowsA, colsA);
+                    showMatrix(dMatrixA, rowsA, colsA, "Wynik dodawania macierzy A i B:");
                     freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {
@@ -94,15 +94,15 @@ int main(int argc, char* argv[]) {
             }
             else if (strcmp(argv[2], "double") == 0) {
                 cout << "Tworzenie macierzy A:" << endl;
-                iMatrixA = createMatrix(iMatrixA, &rowsA, &colsA);
+                dMatrixA = createMatrix(dMatrixA, &rowsA, &colsA);
                 cout << "Tworzenie macierzy B:" << endl;
-                iMatrixB = createMatrix(iMatrixB, &rowsB, &colsB);
+                dMatrixB = createMatrix(dMatrixB, &rowsB, &colsB);
 
                 try {
                     if (rowsA != rowsB || colsA != colsB)
                         throw "Wymiary macierzy musza byc takie same!";
-                    iMatrixA = subtractMatrix(iMatrixA, iMatrixB, rowsA, colsA);
-                    showMatrix(iMatrixA, rowsA, colsA, "Wynik odejmowania macierzy B od macierzy A:");
+                    dMatrixA = subtractMatrix(dMatrixA, dMatrixB, rowsA, colsA);
+                    showMatrix(dMatrixA, rowsA, colsA, "Wynik odejmowania macierzy B od macierzy A:");
                     freeAll(dMatrixA, dMatrixB, dMultiplyResultMatrix, dTransposeResultMatrix, rowsA, colsA, rowsB);
                 }
                 catch(const char* message) {

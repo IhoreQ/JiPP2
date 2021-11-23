@@ -12,7 +12,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68b6c5f6-3856-4a28-9b55-9dfcf5d399d7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Lab7/.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab7/include/Figura.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/CMakeFiles/matrixApp.dir/src/main.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixApp/matrixApp" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixApp/matrixApp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/CMakeFiles/matrixLib.dir/src/matrixLib.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/matrixLib/libmatrixLib.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixApp/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrixApp/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +53,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1zlOTI42GZOFbTPwdRPd5Ov9WHw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -75,6 +111,8 @@
       <workItem from="1634814329140" duration="10436000" />
       <workItem from="1634885341878" duration="121000" />
       <workItem from="1635239631709" duration="32000" />
+      <workItem from="1637663279651" duration="687000" />
+      <workItem from="1637664303211" duration="2056000" />
     </task>
     <servers />
   </component>
