@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <limits>
+#include <iomanip>
+#include "../include/helpfulFunctions.h"
 
 using namespace std;
 
@@ -14,6 +17,7 @@ void checkInput(int& option, int leftBound, int rightBound) {
                 throw "Błędna wartość!";
             else {
                 again = 0;
+                // USUNALEM STAD CIN.IGNORE JAKBY CO
             }
         }
         catch (const char *error) {
@@ -29,17 +33,42 @@ bool findUser(const string& login) {
 
     //Sprawdzam czy istnieje już taki użytkownik
     bool foundUser = false;
-    ifstream readFile("Users.txt", ios::in);
+    ifstream readFile("../Users.csv", ios::in);
     string line;
+    vector<string> row;
+
     if (readFile.good()) {
         while (getline(readFile, line)) {
-            if (line.find(login) != string::npos)
+            row = breakTheLine(line);
+            if (row[0] == login) {
                 foundUser = true;
+                break;
+            }
         }
         readFile.close();
     } else {
-        cout << "Błąd podczas otwierania pliku Users.txt!" << endl;
+        cout << "Błąd podczas otwierania pliku Users.csv!" << endl;
         exit(1);
     }
     return foundUser;
+}
+
+vector<string> breakTheLine(const string& line) {
+    string word;
+    stringstream s(line);
+    vector<string> row;
+
+    while (s >> ws) {
+        if (s.peek() == '"') {
+            s >> quoted(word);
+            string discard;
+            getline(s, discard, ',');
+        } else {
+            getline(s, word, ',');
+        }
+
+        row.push_back(word);
+    }
+
+    return row;
 }

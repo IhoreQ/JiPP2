@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "../include/Film.h"
+#include "../include/helpfulFunctions.h"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ Film::Film(const string& newName, const string& newGenre, unsigned newPublicatio
     filmDescription = newFilmDescription;
 }
 
-Film::Film(string updateName, bool updateBorrowing, string updateGenre, unsigned updateReviewCount, double updateAverageScore, unsigned updatePublicationYear, vector<Review*> updateReviewList,const string& newFilmDescription) : Recording() {
+Film::Film(const string& updateName, const string& updateGenre, unsigned updateReviewCount, double updateAverageScore, unsigned updatePublicationYear, const vector<Review*>& updateReviewList, const string& newFilmDescription) : Recording() {
     filmDescription = newFilmDescription;
 }
 
@@ -47,20 +48,8 @@ string Film::getDescription() {
     return filmDescription;
 }
 
-bool Film::isBorrowing() {
-    return isBorrowed;
-}
-
-void Film::setBorrowing(bool flag) {
-    isBorrowed = flag;
-}
-
 void Film::printDescription() const {
     cout << filmDescription << endl;
-}
-
-void Film::incrementCounter() {
-    reviewCount++;
 }
 
 std::ostream& operator<<(ostream &lhs, const Film &rhs) {
@@ -84,3 +73,20 @@ void Film::printReviews() {
     }
 }
 
+void Film::setLoadedValues(const std::string& newName, const std::string& newGenre, unsigned newYear, const std::string& newDescription) {
+    name = newName;
+    genre = newGenre;
+    publicationYear = newYear;
+    filmDescription = newDescription;
+}
+
+void Film::setLoadedValues(const string &newName, const string &newGenre, unsigned int newYear, const std::string& newDescription, unsigned int newEpisodesNumber, unsigned int newSeasonsNumber) {}
+
+void Film::insertNewReview(const Review &newReview) {
+    reviewList.push_back(newReview);
+    reviewCount++;
+    if (reviewCount > 1)
+        averageScore = (newReview.getScore() + averageScore) / 2;
+    else
+        averageScore = newReview.getScore();
+}

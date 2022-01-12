@@ -10,8 +10,6 @@ class User {
 public:
     // Konstruktory / destruktory
     User();
-    User(const std::string& newLogin, const std::string& newPassword);
-    User(const std::string& loadLogin, const std::string& loadPassword, bool loadLoyaltyCard, unsigned loadBorrowedFilmsNumber, unsigned loadBorrowedSeriesNumber, unsigned loadReviewsNumber, const std::vector<Film*>& loadBorrowedFilms, const std::vector<Film*>& loadBorrowedFilmsHistory, const std::vector<Series*>& loadBorrowedSeries, const std::vector<Series*>& loadBorrowedSeriesHistory);
     ~User();
 
     // Gettery
@@ -21,12 +19,14 @@ public:
     unsigned getBorrowedFilmsNumber() const;
     unsigned getBorrowedSeriesNumber() const;
     unsigned getReviewsNumber() const;
+    void setLoyaltyCard(bool flag);
+    void setReviewsNumber(unsigned number);
 
     // Wyświetlanie informacji
-    void printBorrowedFilms();
-    void printBorrowedFilmsHistory();
-    void printBorrowedSeries();
-    void printBorrowedSeriesHistory();
+    void printBorrowedFilms() const;
+    void printBorrowedFilmsHistory() const;
+    void printBorrowedSeries() const;
+    void printBorrowedSeriesHistory() const;
 
     // Funkcje użytkownika
     void borrowFilm(Film* film);
@@ -34,6 +34,9 @@ public:
     void giveBackFilm(const std::string& filmName);
     void giveBackSeries(const std::string& seriesName);
     void applyForLoyaltyCard();
+    void incrementReviewsNumber();
+    void addFilmToHistory(Film* film);
+    void addSeriesToHistory(Series* series);
 
     // Tworzenie / rejestracja / zapis do pliku
     void create();

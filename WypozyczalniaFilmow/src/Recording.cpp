@@ -12,7 +12,6 @@ Recording::Recording() {
     name = "";
     genre = "";
     publicationYear = 0;
-    isBorrowed = false;
     reviewCount = 0;
     averageScore = 0.0;
 }
@@ -21,12 +20,8 @@ Recording::Recording(const string& newName, const string& newGenre, unsigned new
     name = newName;
     genre = newGenre;
     publicationYear = newPublicationYear;
-
-    isBorrowed = false;
     reviewCount = 0;
     averageScore = 0.0;
 }
-
-Recording::Recording(const string& updateName, bool updateBorrowing, const string& updateGenre, unsigned updateReviewCount, double updateAverageScore, unsigned updatePublicationYear, const vector<Review*>& updateReviewList): name(updateName), isBorrowed(updateBorrowing), genre(updateGenre), reviewCount(updateReviewCount), averageScore(updateAverageScore), publicationYear(updatePublicationYear), reviewList(updateReviewList) {}
 
 Recording::~Recording() {}

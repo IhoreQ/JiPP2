@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "../include/Review.h"
+#include "../include/helpfulFunctions.h"
 
 using namespace std;
 
@@ -17,26 +18,32 @@ Review::Review(string, string, unsigned) {
 
 }
 
-void Review::setWhoAdded(string name) {
-
+void Review::setWhoAdded(const string& name) {
+    whoAdded = name;
 }
 
-string Review::getWhoAdded() {
+string Review::getWhoAdded() const {
     return whoAdded;
 }
 
-void Review::setContent(string newContent) {
-
+void Review::setContent(const string& newContent) {
+    content = newContent;
 }
 
-string Review::getContent() {
+string Review::getContent() const {
     return content;
 }
 
 void Review::setScore(unsigned newScore) {
-
+    score = newScore;
 }
 
-unsigned Review::getScore() {
+unsigned Review::getScore() const {
     return score;
+}
+
+void Review::setLoadedValues(const string &newWhoAdded, const string &newContent, unsigned int newScore) {
+    whoAdded = newWhoAdded;
+    content = newContent;
+    score = newScore;
 }

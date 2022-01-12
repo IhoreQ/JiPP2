@@ -1,6 +1,4 @@
 #include <iostream>
-#include <limits>
-#include <fstream>
 #include "../include/Film.h"
 #include "../include/Recording.h"
 #include "../include/Review.h"
