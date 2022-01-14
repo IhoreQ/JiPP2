@@ -8,7 +8,6 @@ class Film : public Recording {
 public:
     Film();
     Film(const std::string& newName, const std::string& newGenre, unsigned newPublicationYear, const std::string& newFilmDescription);
-    Film(const std::string& updateName, const std::string& updateGenre, unsigned updateReviewCount, double updateAverageScore, unsigned updatePublicationYear, const std::vector<Review*>& updateReviewList, const std::string& newFilmDescription);
 
     std::string getName() override;
     unsigned getReviewCount() override;

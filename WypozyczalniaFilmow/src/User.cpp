@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <iomanip>
 #include "../include/User.h"
 #include "../include/helpfulFunctions.h"
 
@@ -18,7 +19,7 @@ User::User() {
 }
 
 User::~User() {
-    //saveToFile();
+    saveToFile();
 }
 
 string User::getLogin() const {
@@ -45,66 +46,86 @@ unsigned User::getReviewsNumber() const {
     return reviewsNumber;
 }
 
-void User::printBorrowedFilms() const { // TODO
+void User::printBorrowedFilms() const {
 
     if (borrowedFilms.empty())
         cout << "Brak wypożyczonych filmów!" << endl;
     else {
-        string dashes(54, '-');
         cout << "Wypożyczone filmy:" << endl;
-        cout << "Lp.\tNazwa\tGatunek\tData publikacji" << endl;
+        string dashes(82, '-');
+        cout << "Lp." << setw(39) << "Nazwa" << setw(20) << "Gatunek" << setw(20) << "Data publikacji" << endl;
         cout << dashes << endl;
         int i = 1;
         for (auto& video : borrowedFilms) {
-            cout << i++ << ".\t" << *video << endl;
+            if (i < 10)
+                cout << i++ << "." << setw(40) << *video << endl;
+            else if (i < 100)
+                cout << i++ << "." << setw(39) << *video << endl;
+            else
+                cout << i++ << "." << setw(38) << *video << endl;
         }
     }
 }
 
-void User::printBorrowedFilmsHistory() const { // TODO
+void User::printBorrowedFilmsHistory() const {
 
     if (borrowedFilmsHistory.empty())
         cout << "Brak wypożyczonych filmów w historii!" << endl;
     else {
-        string dashes(54, '-');
         cout << "Historia wypożyczonych filmów:" << endl;
-        cout << "Lp.\tNazwa\tGatunek\tData publikacji" << endl;
+        string dashes(82, '-');
+        cout << "Lp." << setw(39) << "Nazwa" << setw(20) << "Gatunek" << setw(20) << "Data publikacji" << endl;
         cout << dashes << endl;
         int i = 1;
         for (auto& video : borrowedFilmsHistory) {
-            cout << i++ << ".\t" << *video << endl;
+            if (i < 10)
+                cout << i++ << "." << setw(40) << *video << endl;
+            else if (i < 100)
+                cout << i++ << "." << setw(39) << *video << endl;
+            else
+                cout << i++ << "." << setw(38) << *video << endl;
         }
     }
 }
-void User::printBorrowedSeries() const { // TODO
+void User::printBorrowedSeries() const {
 
     if (borrowedSeries.empty())
         cout << "Brak wypożyczonych seriali!" << endl;
     else {
-        string dashes(100, '-');
         cout << "Wypożyczone seriale:" << endl;
-        cout << "Lp.\tNazwa\tGatunek\tData publikacji\tLiczba odcinków\tLiczba sezonów" << endl;
+        string dashes(122, '-');
+        cout << "Lp." << setw(39) << "Nazwa" << setw(20) << "Gatunek" << setw(20) << "Data publikacji" << setw(21) << "Liczba odcinków" << setw(21) << "Liczba sezonów" << endl;
         cout << dashes << endl;
+
         int i = 1;
-        for (auto& video : borrowedSeries) {
-            cout << i++ << ".\t" << *video << endl;
-        }
+        for (auto& video : borrowedSeries)
+            if (i < 10)
+                cout << i++ << "." << setw(40) << *video << endl;
+            else if (i < 100)
+                cout << i++ << "." << setw(39) << *video << endl;
+            else
+                cout << i++ << "." << setw(38) << *video << endl;
     }
 }
 
-void User::printBorrowedSeriesHistory() const { // TODO
+void User::printBorrowedSeriesHistory() const {
 
     if (borrowedSeriesHistory.empty())
         cout << "Brak wypożyczonych seriali w historii!" << endl;
     else {
-        string dashes(100, '-');
         cout << "Historia wypożyczonych seriali:" << endl;
-        cout << "Lp.\tNazwa\tGatunek\tData publikacji\tLiczba odcinków\tLiczba sezonów" << endl;
+        string dashes(122, '-');
+        cout << "Lp." << setw(39) << "Nazwa" << setw(20) << "Gatunek" << setw(20) << "Data publikacji" << setw(21) << "Liczba odcinków" << setw(21) << "Liczba sezonów" << endl;
         cout << dashes << endl;
+
         int i = 1;
-        for (auto& video : borrowedSeriesHistory) {
-            cout << i++ << ".\t" << *video << endl;
-        }
+        for (auto& video : borrowedSeriesHistory)
+            if (i < 10)
+                cout << i++ << "." << setw(40) << *video << endl;
+            else if (i < 100)
+                cout << i++ << "." << setw(39) << *video << endl;
+            else
+                cout << i++ << "." << setw(38) << *video << endl;
     }
 }
 
@@ -140,24 +161,6 @@ void User::giveBackSeries(const string& seriesName) {
         if ((*item)->getName() == seriesName) {
             borrowedSeries.erase(item);
             break;
-        }
-    }
-}
-
-void User::applyForLoyaltyCard() {
-    if (loyaltyCard) {
-        cout << "Już posiadasz kartę stałego klienta!" << endl;
-    } else {
-
-        cout << "Aby założyć kartę stałego klienta musisz spełniać następujące warunki:" << endl << "1. Posiadać przynajmniej 20 wypożyczonych filmów lub seriali"
-        << endl << "2. Dodać przynajmniej 5 recenzji." << endl;
-        cout << "Dzięki niej możesz wypożyczać filmy na dłuższy okres: 20 dni!" << endl;
-
-        if ((borrowedFilmsNumber + borrowedSeriesNumber) >= 20 && reviewsNumber >= 5) {
-            loyaltyCard = true;
-            cout << "Karta założona!" << endl;
-        } else {
-            cout << "Niestety nie spełniasz warunków koniecznych do założenia karty." << endl;
         }
     }
 }
@@ -214,7 +217,52 @@ void User::registerNewUser() {
     writeFile.close();
 }
 
-void User::saveToFile() { //TODO
+void User::saveToFile() {
+
+    string userPath = "../Users/" + login + ".csv";
+    string firstLine = "Typ,Nazwa,Aktualnie wypożyczony,Karta stałego klienta,Ilość recenzji";
+    vector<string> row;
+    row = breakTheLine(firstLine);
+    bool first = true;
+
+    ofstream userFile(userPath.c_str());
+
+    if (!userFile.good()) {
+        cout << "Błąd podczas otwierania pliku do zapisu!\n";
+    }
+
+    if (userFile.is_open()) {
+        for (auto& element : row)
+            userFile << element << ',';
+        userFile << "\n";
+
+        for (auto& element : borrowedFilmsHistory) {
+            userFile << "Film," << element->getName() << ',';
+            if (isFilmBorrowed(element->getName()))
+                userFile << "tak,";
+            else
+                userFile << "nie,";
+
+            if (first) {
+                if (loyaltyCard)
+                    userFile << "tak," << reviewsNumber << ',' << borrowedFilmsNumber << ',' << borrowedSeriesNumber;
+                else
+                    userFile << "nie," << reviewsNumber << ',' << borrowedFilmsNumber << ',' << borrowedSeriesNumber;
+                first = false;
+            }
+            userFile << "\n";
+        }
+
+        for (auto& element : borrowedSeriesHistory) {
+            userFile << "Serial," << element->getName() << ',';
+            if (isSeriesBorrowed(element->getName()))
+                userFile << "tak\n";
+            else
+                userFile << "nie\n";
+        }
+        userFile.close();
+    }
+
     cout << "Zapisałem dane użytkownika do pliku!" << endl;
 }
 
@@ -288,17 +336,60 @@ void User::setLoyaltyCard(bool flag) {
     loyaltyCard = flag;
 }
 
-void User::addFilmToHistory(Film* film) {
+void User::loadFilmToHistory(Film* film) {
     borrowedFilmsHistory.push_back(film);
-    borrowedFilmsNumber++;
 }
 
-void User::addSeriesToHistory(Series* series) {
+void User::loadSeriesToHistory(Series* series) {
     borrowedSeriesHistory.push_back(series);
-    borrowedSeriesNumber++;
 }
 
 void User::setReviewsNumber(unsigned int number) {
     reviewsNumber = number;
+}
+
+bool User::isFilmHistoryVectorEmpty() {
+    if (borrowedFilmsHistory.empty())
+        return true;
+    return false;
+}
+
+bool User::isSeriesHistoryVectorEmpty() {
+    if (borrowedSeriesHistory.empty())
+        return true;
+    return false;
+}
+
+bool User::checkFilmsAndSeriesEmpty() const {
+
+    if (borrowedFilms.empty() && borrowedSeries.empty())
+        return true;
+    return false;
+}
+
+bool User::checkFilmsAndSeriesHistoryEmpty() const {
+    if (borrowedFilmsHistory.empty() && borrowedSeriesHistory.empty())
+        return true;
+    return false;
+}
+
+void User::setBorrowedFilmsNumber(unsigned int number) {
+    borrowedFilmsNumber = number;
+}
+
+void User::setBorrowedSeriesNumber(unsigned int number) {
+    borrowedSeriesNumber = number;
+}
+
+void User::loadFilmToBorrowed(Film *film) {
+    borrowedFilms.push_back(film);
+    if (!(wasFilmBorrowed(film->getName())))
+        borrowedFilmsHistory.push_back(film);
+}
+
+void User::loadSeriesToBorrowed(Series *series) {
+    borrowedSeries.push_back(series);
+    if (!(wasFilmBorrowed(series->getName())))
+        borrowedSeriesHistory.push_back(series);
 }
 

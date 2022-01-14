@@ -11,4 +11,9 @@ void checkInput(int& option, int leftBound, int rightBound);
 bool findUser(const std::string& userLogin);
 std::vector<std::string> breakTheLine(const std::string& line);
 
+template<typename T>
+T countAverage(T oldAverage, unsigned newValue) {
+    return ((oldAverage + newValue) / 2);
+}
+
 #endif //WYPOZYCZALNIAFILMOW_HELPFULFUNCTIONS_H

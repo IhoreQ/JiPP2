@@ -3,13 +3,14 @@
 //
 
 #include <iostream>
+#include <iomanip>
 #include "../include/Series.h"
 #include "../include/helpfulFunctions.h"
 
 using namespace std;
 
 std::ostream &operator<<(ostream &lhs, const Series &rhs) {
-    lhs << rhs.name << "\t" << rhs.genre << "\t" << rhs.publicationYear << "\t" << rhs.episodesNumber << "\t" << rhs.seasonsNumber;
+    lhs << rhs.name << setw(20) << rhs.genre << setw(20) << rhs.publicationYear << setw(20) << rhs.episodesNumber << setw(20) << rhs.seasonsNumber;
     return lhs;
 }
 
@@ -73,6 +74,7 @@ void Series::printReviews() {
         cout << "Dodal: " << review.getWhoAdded() << endl;
         cout << "Ocena: " << review.getScore() << endl;
         cout << review.getContent() << endl;
+        cout << "---------" << endl;
     }
 }
 

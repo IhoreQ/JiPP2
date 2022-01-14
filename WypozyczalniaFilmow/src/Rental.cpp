@@ -85,21 +85,17 @@ void Rental::run(int argc, char* argv[]) {
                 break;
             case 5:
                 system("clear");
-                user.printBorrowedFilms();
-                cout << "\n";
-                user.printBorrowedSeries();
+                printUserFilms(user);
                 freezeTheScreen();
                 break;
             case 6:
                 system("clear");
-                user.printBorrowedFilmsHistory();
-                cout << "\n";
-                user.printBorrowedSeriesHistory();
+                printUserFilmsHistory(user);
                 freezeTheScreen();
                 break;
             case 7:
                 system("clear");
-                user.applyForLoyaltyCard();
+                applyForLoyaltyCard(user);
                 freezeTheScreen();
                 break;
             case 8:
@@ -140,22 +136,44 @@ void Rental::printMenuOptions() const {
 
 }
 
-void Rental::printFilmsTitles() { // TODO
-    string dashes(54, '-');
-    cout << "Lp.\tNazwa\tGatunek\tData publikacji" << endl;
+void Rental::printFilmsTitles() {
+    string dashes(82, '-');
+    cout << "Lp." << setw(39) << "Nazwa" << setw(20) << "Gatunek" << setw(20) << "Data publikacji" << endl;
     cout << dashes << endl;
     int i = 1;
-    for (auto& video : films)
-        cout << i++ << ".\t" << video << endl;
+    for (auto& video : films) {
+        if (i < 10)
+            cout << i++ << "." << setw(40) << video << endl;
+        else if (i < 100)
+            cout << i++ << "." << setw(39) << video << endl;
+        else
+            cout << i++ << "." << setw(38) << video << endl;
+    }
+
+    if (superSpecialFilm) {
+        if (i < 10)
+            cout << i++ << "." << setw(40) << superSpecialFilm->getName() << setw(20) << superSpecialFilm->getGenre() << setw(20) << superSpecialFilm->getPublicationYear() << endl;
+        else if (i < 100)
+            cout << i++ << "." << setw(39) << superSpecialFilm->getName() << setw(20) << superSpecialFilm->getGenre() << setw(20) << superSpecialFilm->getPublicationYear() << endl;
+        else
+            cout << i++ << "." << setw(38) << superSpecialFilm->getName() << setw(20) << superSpecialFilm->getGenre() << setw(20) << superSpecialFilm->getPublicationYear() << endl;
+    }
+
 }
 
-void Rental::printSeriesTitles() { // TODO
-    string dashes(77, '-');
-    cout << "Lp.\tNazwa\tGatunek\tData publikacji\tLiczba odcinków\tLiczba sezonów" << endl;
+void Rental::printSeriesTitles() {
+    string dashes(122, '-');
+    cout << "Lp." << setw(39) << "Nazwa" << setw(20) << "Gatunek" << setw(20) << "Data publikacji" << setw(21) << "Liczba odcinków" << setw(21) << "Liczba sezonów" << endl;
     cout << dashes << endl;
+
     int i = 1;
     for (auto& video : series)
-        cout << i++ << ".\t" << video << endl;
+        if (i < 10)
+            cout << i++ << "." << setw(40) << video << endl;
+        else if (i < 100)
+            cout << i++ << "." << setw(39) << video << endl;
+        else
+            cout << i++ << "." << setw(38) << video << endl;
 }
 
 void Rental::loadContent() {
@@ -234,55 +252,75 @@ void Rental::borrowRecording(User& user) {
     cout << "Co chcesz wypożyczyć?\n1. Film\n2. Serial\n3. Rezygnuję" << endl << "Opcja: ";
     checkInput(option, 1, 3);
 
-    if (option == 1) {
+    system("clear");
 
+    if (option == 1) {
+        cout << "Dostępne filmy: " << endl;
         printFilmsTitles();
+        cout << "\n";
         cout << "Podaj nazwę filmu, który chcesz wypożyczyć: ";
         getline(cin>>ws, name);
         Film* searchingFilm = searchFilmByTitle(name);
+        cout << "\n";
 
-        if (searchingFilm == nullptr)
-            cout << "Niestety, takiego filmu nie ma nawet w naszej wypożyczalni." << endl;
-        else {
-            cout << "Czy chcesz zobaczyć opis, ocenę i recenzje filmu? (1 - tak, 0 - nie)" << endl;
-            cout << "Opcja: ";
+        if (superSpecialFilm && name == superSpecialFilm->getName()) {
+            cout << "Niestety, tego filmu nie możesz wypożyczyć, ale skoro posiadasz kartę stałego klienta - możesz obejrzeć go tu na miejscu! Chcesz? (1 - tak, 0 - nie)\nOpcja: ";
             checkInput(option, 0, 1);
-            if (option) {
-                cout << searchingFilm->getName() << ": " << endl;
-                cout << "Opis: " << searchingFilm->getDescription() << endl;
-                cout << "Średnia ocena: " << searchingFilm->getAverageScore() << endl;
-                cout << "Recenzje:" << endl;
-                cout << "-------------------------------------" << endl;
-                searchingFilm->printReviews();
+            cout << "\n";
 
-                cout << "Czy chcesz wypożyczyć ten film? (1 - tak, 0 - nie)" << endl;
-                cout << "Opcja: ";
-                checkInput(option, 0, 1);
-                if (option) {
-                    if (user.isFilmBorrowed(searchingFilm->getName()))
-                        cout << "Już posiadasz ten film!" << endl;
-                    else
-                        user.borrowFilm(searchingFilm);
-                }
-            }
+            system("clear");
+            printSuperSpecialFilm();
+        }
+        else {
+            if (searchingFilm == nullptr)
+                cout << "Niestety, takiego filmu nie ma nawet w naszej wypożyczalni." << endl;
             else {
-                cout << "Czy chcesz zobaczyć wypożyczyć ten film? (1 - tak, 0 - nie)" << endl;
+                cout << "Czy chcesz zobaczyć opis, ocenę i recenzje filmu? (1 - tak, 0 - nie)" << endl;
                 cout << "Opcja: ";
                 checkInput(option, 0, 1);
+                cout << "\n";
+
                 if (option) {
-                    if (user.isFilmBorrowed(searchingFilm->getName()))
-                        cout << "Już posiadasz ten film!" << endl;
-                    else
-                        user.borrowFilm(searchingFilm);
+                    cout << searchingFilm->getName() << ": " << endl;
+                    cout << "Opis: " << searchingFilm->getDescription() << endl;
+                    cout << "Średnia ocena: " << searchingFilm->getAverageScore() << endl;
+                    cout << "Recenzje:" << endl;
+                    cout << "---------" << endl;
+                    searchingFilm->printReviews();
+                    cout << "\n";
+                    cout << "Czy chcesz wypożyczyć ten film? (1 - tak, 0 - nie)" << endl;
+                    cout << "Opcja: ";
+                    checkInput(option, 0, 1);
+                    if (option) {
+                        if (user.isFilmBorrowed(searchingFilm->getName()))
+                            cout << "Już posiadasz ten film!" << endl;
+                        else
+                            user.borrowFilm(searchingFilm);
+                    }
+                }
+                else {
+                    cout << "Czy chcesz zobaczyć wypożyczyć ten film? (1 - tak, 0 - nie)" << endl;
+                    cout << "Opcja: ";
+                    checkInput(option, 0, 1);
+                    if (option) {
+                        if (user.isFilmBorrowed(searchingFilm->getName()))
+                            cout << "Już posiadasz ten film!" << endl;
+                        else
+                            user.borrowFilm(searchingFilm);
+                    }
                 }
             }
         }
     }
     else if (option == 2) {
+        cout << "Dostępne seriale: " << endl;
         printSeriesTitles();
+        cout << "\n";
         cout << "Podaj nazwę serialu, który chcesz wypożyczyć: ";
         getline(cin>>ws, name);
         Series* searchingSeries = searchSeriesByTitle(name);
+
+        cout << "\n";
 
         if (searchingSeries == nullptr)
             cout << "Niestety, takiego serialu nie ma nawet w naszej wypożyczalni." << endl;
@@ -290,6 +328,7 @@ void Rental::borrowRecording(User& user) {
             cout << "Czy chcesz zobaczyć opis, ocenę i recenzje serialu? (1 - tak, 0 - nie)" << endl;
             cout << "Opcja: ";
             checkInput(option, 0, 1);
+            cout << "\n";
             if (option) {
                 cout << searchingSeries->getName() << ": " << endl;
                 cout << "Opis: " << searchingSeries->getDescription() << endl;
@@ -297,7 +336,7 @@ void Rental::borrowRecording(User& user) {
                 cout << "Recenzje:" << endl;
                 cout << "-------------------------------------" << endl;
                 searchingSeries->printReviews();
-
+                cout << "\n";
                 cout << "Czy chcesz wypożyczyć ten serial? (1 - tak, 0 - nie)" << endl;
                 cout << "Opcja: ";
                 checkInput(option, 0, 1);
@@ -336,11 +375,12 @@ void Rental::giveBackRecording(User &user) {
 
         cout << "Twoje filmy:" << endl;
         user.printBorrowedFilms();
+        cout << "\n";
 
         cout << "Podaj nazwę filmu, który chcesz oddać: ";
         getline(cin>>ws, name);
         Film* searchingFilm = searchFilmByTitle(name);
-
+        cout << "\n";
         if (searchingFilm == nullptr)
             cout << "Niestety, takiego filmu nie ma nawet w naszej wypożyczalni." << endl;
         else {
@@ -359,11 +399,11 @@ void Rental::giveBackRecording(User &user) {
 
         cout << "Twoje seriale: " << endl;
         user.printBorrowedSeries();
-
+        cout << "\n";
         cout << "Podaj nazwę serialu, który chcesz oddać: ";
         getline(cin>>ws, name);
         Series* searchingSeries = searchSeriesByTitle(name);
-
+        cout << "\n";
         if (searchingSeries == nullptr)
             cout << "Niestety, takiego serialu nie ma nawet w naszej wypożyczalni." << endl;
         else {
@@ -415,59 +455,66 @@ void Rental::addNewReview(User& user) {
 
     system("clear");
     if (option == 1) {
-
-        cout << "Historia twoich filmów:" << endl;
-        user.printBorrowedFilmsHistory();
-
-        cout << "Podaj nazwę filmu, do którego chcesz dodać recenzję: ";
-        getline(cin >> ws, name);
-        Film *searchingFilm = searchFilmByTitle(name);
-
-        if (searchingFilm == nullptr)
-            cout << "Niestety, nie posiadasz takiego filmu w swojej historii." << endl;
+        if (user.isFilmHistoryVectorEmpty()) {
+            cout << "Nie masz czego oceniać, najpierw coś wypożycz.\n";
+        }
         else {
-            if (user.wasFilmBorrowed(searchingFilm->getName())) {
-                cout << "Podaj ocenę jaką chcesz wystawić filmowi (1-10): ";
-                checkInput(newScore, 1, 10);
+            cout << "Historia twoich filmów:" << endl;
+            user.printBorrowedFilmsHistory();
 
-                cout << "Wpisz swoją recenzję: ";
-                getline(cin >> ws, newContent);
+            cout << "Podaj nazwę filmu, do którego chcesz dodać recenzję: ";
+            getline(cin >> ws, name);
+            Film *searchingFilm = searchFilmByTitle(name);
 
-                newReview.setLoadedValues(user.getLogin(), newContent, newScore);
-                searchingFilm->insertNewReview(newReview);
-                user.incrementReviewsNumber();
+            if (searchingFilm == nullptr)
+                cout << "Niestety, nie posiadasz takiego filmu w swojej historii." << endl;
+            else {
+                if (user.wasFilmBorrowed(searchingFilm->getName())) {
+                    cout << "Podaj ocenę jaką chcesz wystawić filmowi (1-10): ";
+                    checkInput(newScore, 1, 10);
 
-                saveNewReview(newReview, searchingFilm->getName(), true);
+                    cout << "Wpisz swoją recenzję: ";
+                    getline(cin >> ws, newContent);
+
+                    newReview.setLoadedValues(user.getLogin(), newContent, newScore);
+                    searchingFilm->insertNewReview(newReview);
+                    user.incrementReviewsNumber();
+
+                    saveNewReview(newReview, searchingFilm->getName(), true);
+                } else
+                    cout << "Nie miałeś takiego filmu, więc nie możesz dodać do niego recenzji!\n";
             }
-            else
-                cout << "Nie miałeś takiego filmu, więc nie możesz dodać do niego recenzji!\n";
         }
     } else if (option == 2) {
-        cout << "Historia twoich seriali:" << endl;
-        user.printBorrowedSeriesHistory();
-
-        cout << "Podaj nazwę serialu, do którego chcesz dodać recenzję: ";
-        getline(cin >> ws, name);
-        Series *searchingSeries = searchSeriesByTitle(name);
-
-        if (searchingSeries == nullptr)
-            cout << "Niestety, takiego serialu nie ma nawet w naszej wypożyczalni.." << endl;
+        if (user.isSeriesHistoryVectorEmpty()) {
+            cout << "Nie masz czego oceniać, najpierw coś wypożycz.\n";
+        }
         else {
-            if (user.wasSeriesBorrowed(searchingSeries->getName())) {
-                cout << "Podaj ocenę jaką chcesz wystawić serialowi (1-10): ";
-                checkInput(newScore, 1, 10);
+            cout << "Historia twoich seriali:" << endl;
+            user.printBorrowedSeriesHistory();
 
-                cout << "Wpisz swoją recenzję: ";
-                getline(cin >> ws, newContent);
+            cout << "Podaj nazwę serialu, do którego chcesz dodać recenzję: ";
+            getline(cin >> ws, name);
+            Series *searchingSeries = searchSeriesByTitle(name);
 
-                newReview.setLoadedValues(user.getLogin(), newContent, newScore);
-                searchingSeries->insertNewReview(newReview);
-                user.incrementReviewsNumber();
+            if (searchingSeries == nullptr)
+                cout << "Niestety, takiego serialu nie ma nawet w naszej wypożyczalni.." << endl;
+            else {
+                if (user.wasSeriesBorrowed(searchingSeries->getName())) {
+                    cout << "Podaj ocenę jaką chcesz wystawić serialowi (1-10): ";
+                    checkInput(newScore, 1, 10);
 
-                saveNewReview(newReview, searchingSeries->getName(), false);
+                    cout << "Wpisz swoją recenzję: ";
+                    getline(cin >> ws, newContent);
+
+                    newReview.setLoadedValues(user.getLogin(), newContent, newScore);
+                    searchingSeries->insertNewReview(newReview);
+                    user.incrementReviewsNumber();
+
+                    saveNewReview(newReview, searchingSeries->getName(), false);
+                } else
+                    cout << "Nie miałeś takiego serialu, więc nie możesz dodać do niego recenzji!\n";
             }
-            else
-                cout << "Nie miałeś takiego serialu, więc nie możesz dodać do niego recenzji!\n";
         }
     }
 }
@@ -513,6 +560,7 @@ void Rental::loadUserData(User& user) {
             if (first) {
                 if (row[3] == "tak") {
                     user.setLoyaltyCard(true);
+                    superSpecialFilm = new Film("Kariera Nikosia Dyzmy", "Komedia", 2002, "Pracownik zakładu pogrzebowego przypadkiem trafia na wystawny bankiet. Zdobywa uznanie wpływowych ludzi, dzięki którym zaczyna robić karierę polityczną.");
                     first = false;
                 }
                 else if (row[3] == "nie") {
@@ -521,6 +569,8 @@ void Rental::loadUserData(User& user) {
                 }
                 if (second) {
                     user.setReviewsNumber(stoi(row[4]));
+                    user.setBorrowedFilmsNumber(stoi(row[5]));
+                    user.setBorrowedSeriesNumber(stoi(row[6]));
                 }
                 second = true;
             }
@@ -528,22 +578,79 @@ void Rental::loadUserData(User& user) {
             if (row[0] == "Film") {
                 userFilm = searchFilmByTitle(row[1]);
                 if (row[2] == "tak") {
-                    user.borrowFilm(userFilm);
+                    user.loadFilmToBorrowed(userFilm);
                 }
                 else if (row[2] == "nie") {
-                    user.addFilmToHistory(userFilm);
+                    user.loadFilmToHistory(userFilm);
                 }
             }
             else if (row[0] == "Serial") {
                 userSeries = searchSeriesByTitle(row[1]);
                 if (row[2] == "tak") {
-                    user.borrowSeries(userSeries);
+                    user.loadSeriesToBorrowed(userSeries);
                 }
                 else if (row[2] == "nie") {
-                    user.addSeriesToHistory(userSeries);
+                    user.loadSeriesToHistory(userSeries);
                 }
             }
         }
         userFile.close();
     }
+}
+
+void Rental::printUserFilms(const User& user) const {
+    if (user.checkFilmsAndSeriesEmpty()) {
+        cout << "Nie masz żadnych filmów i seriali.\n";
+    }
+    else {
+        user.printBorrowedFilms();
+        cout << "\n";
+        user.printBorrowedSeries();
+        cout << "\n";
+    }
+}
+
+void Rental::printUserFilmsHistory(const User &user) const {
+    if (user.checkFilmsAndSeriesHistoryEmpty()) {
+        cout << "Nie masz żadnych filmów i seriali.\n";
+    }
+    else {
+        user.printBorrowedFilmsHistory();
+        cout << "\n";
+        user.printBorrowedSeriesHistory();
+        cout << "\n";
+    }
+}
+
+void Rental::applyForLoyaltyCard(User &user) {
+    if (user.getLoyaltyCardInfo()) {
+        cout << "Już posiadasz kartę stałego klienta!" << endl;
+    } else {
+
+        cout << "Aby założyć kartę stałego klienta musisz spełniać następujące warunki:" << endl << "1. Posiadać przynajmniej 20 wypożyczonych filmów lub seriali"
+             << endl << "2. Dodać przynajmniej 5 recenzji." << endl;
+        cout << "Dzięki niej zdobędziesz dostęp do super specjalnego filmu!" << endl;
+
+        if ((user.getBorrowedFilmsNumber() + user.getBorrowedSeriesNumber()) >= 20 && user.getReviewsNumber() >= 5) {
+            user.setLoyaltyCard(true);
+            cout << "Karta założona!" << endl;
+
+            superSpecialFilm = new Film("Kariera Nikosia Dyzmy", "Komedia", 2002, "Pracownik zakładu pogrzebowego przypadkiem trafia na wystawny bankiet. Zdobywa uznanie wpływowych ludzi, dzięki którym zaczyna robić karierę polityczną.");
+        } else {
+            cout << "Niestety nie spełniasz warunków koniecznych do założenia karty." << endl;
+        }
+    }
+}
+
+void Rental::printSuperSpecialFilm() {
+    cout << "Tytuł: " << superSpecialFilm->getName() << endl << "Gatunek: " << superSpecialFilm->getGenre() << endl << "Rok publikacji: " << superSpecialFilm->getPublicationYear() << endl << "Opis filmu: " << superSpecialFilm->getDescription() << endl;
+    cout << "\nNikoś: Mnie nie brakuje... Niech i wam nie zabraknie. Aja.\n";
+    cout << "Dostawca: Gdzie to zwalać szefie?\n";
+    cout << "Jan Władeczek: Czekaj pan, a dużo tego jest?\n";
+    cout << "Dostawca: No, jeszcze 50 skrzynek.\n";
+    cout << "Jan Władeczek: Otwieraj mu spiżarkę!\n";
+    cout << "Jan Władeczek: To chyba będzie z 500 litry.\n";
+    cout << "Niemrawy: 500 litry? Na dwóch?\n";
+    cout << "Niemrawy: ...Rok picia.\n";
+    cout << "\nDziękujemy za obejrzenie tego wspaniałego filmu!\n";
 }

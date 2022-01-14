@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 #include "../include/Film.h"
 #include "../include/helpfulFunctions.h"
 
@@ -15,10 +16,6 @@ Film::Film() : Recording() {
 }
 
 Film::Film(const string& newName, const string& newGenre, unsigned newPublicationYear, const string& newFilmDescription) : Recording(newName, newGenre, newPublicationYear) {
-    filmDescription = newFilmDescription;
-}
-
-Film::Film(const string& updateName, const string& updateGenre, unsigned updateReviewCount, double updateAverageScore, unsigned updatePublicationYear, const vector<Review*>& updateReviewList, const string& newFilmDescription) : Recording() {
     filmDescription = newFilmDescription;
 }
 
@@ -54,7 +51,7 @@ void Film::printDescription() const {
 
 std::ostream& operator<<(ostream &lhs, const Film &rhs) {
 
-    lhs << rhs.name << "\t" << rhs.genre << "\t" << rhs.publicationYear;
+    lhs  << rhs.name << setw(20) << rhs.genre << setw(20) << rhs.publicationYear;
     return lhs;
 }
 
@@ -70,23 +67,30 @@ void Film::printReviews() {
         cout << "Dodal: " << review.getWhoAdded() << endl;
         cout << "Ocena: " << review.getScore() << endl;
         cout << review.getContent() << endl;
+        cout << "---------" << endl;
     }
 }
 
-void Film::setLoadedValues(const std::string& newName, const std::string& newGenre, unsigned newYear, const std::string& newDescription) {
+void Film::setLoadedValues(const string& newName, const string& newGenre, unsigned newYear, const string& newDescription) {
     name = newName;
     genre = newGenre;
     publicationYear = newYear;
     filmDescription = newDescription;
 }
 
-void Film::setLoadedValues(const string &newName, const string &newGenre, unsigned int newYear, const std::string& newDescription, unsigned int newEpisodesNumber, unsigned int newSeasonsNumber) {}
+void Film::setLoadedValues(const string &newName, const string &newGenre, unsigned int newYear, const string& newDescription, unsigned int newEpisodesNumber, unsigned int newSeasonsNumber) {}
 
 void Film::insertNewReview(const Review &newReview) {
     reviewList.push_back(newReview);
     reviewCount++;
-    if (reviewCount > 1)
-        averageScore = (newReview.getScore() + averageScore) / 2;
+    if (reviewCount > 2) {
+        double sum = 0;
+        for (auto& element : reviewList)
+            sum += element.getScore();
+        averageScore = sum / reviewCount;
+    }
+    else if (reviewCount == 2)
+        averageScore = countAverage<double>(averageScore, newReview.getScore());
     else
         averageScore = newReview.getScore();
 }

@@ -17,7 +17,8 @@ void checkInput(int& option, int leftBound, int rightBound) {
                 throw "Błędna wartość!";
             else {
                 again = 0;
-                // USUNALEM STAD CIN.IGNORE JAKBY CO
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
         }
         catch (const char *error) {
