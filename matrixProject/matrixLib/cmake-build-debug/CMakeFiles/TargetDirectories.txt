@@ -1,3 +1,0 @@
-/home/IhoreQ/CLionProjects/JiPP2/matrixProject/matrixLib/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/IhoreQ/CLionProjects/JiPP2/matrixProject/matrixLib/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/IhoreQ/CLionProjects/JiPP2/matrixProject/matrixLib/cmake-build-debug/CMakeFiles/matrixLib.dir

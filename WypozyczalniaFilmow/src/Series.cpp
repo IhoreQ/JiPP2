@@ -92,8 +92,14 @@ void Series::setLoadedValues(const string &newName, const string &newGenre, unsi
 void Series::insertNewReview(const Review &newReview) {
     reviewList.push_back(newReview);
     reviewCount++;
-    if (reviewCount > 1)
-        averageScore = (newReview.getScore() + averageScore) / 2;
+    if (reviewCount > 2) {
+        double sum = 0;
+        for (auto& element : reviewList)
+            sum += element.getScore();
+        averageScore = sum / reviewCount;
+    }
+    else if (reviewCount == 2)
+        averageScore = countAverage<double>(averageScore, newReview.getScore());
     else
         averageScore = newReview.getScore();
 }

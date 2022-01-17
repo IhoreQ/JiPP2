@@ -10,13 +10,7 @@ using namespace std;
 
 Review::Review(): score(0) {}
 
-Review::Review(string, unsigned) {
-
-}
-
-Review::Review(string, string, unsigned) {
-
-}
+Review::Review(const string& newWhoAdded, const string& newContent, unsigned newScore): whoAdded(newWhoAdded), content(newContent), score(newScore) {}
 
 void Review::setWhoAdded(const string& name) {
     whoAdded = name;

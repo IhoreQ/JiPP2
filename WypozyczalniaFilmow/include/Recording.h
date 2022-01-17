@@ -1,3 +1,5 @@
+// Plik zawiera klasę abstrakcyjną Recording, po której dziedziczą klasy Film oraz Series
+
 #ifndef WYPOZYCZALNIAFILMOW_RECORDING_H
 #define WYPOZYCZALNIAFILMOW_RECORDING_H
 
